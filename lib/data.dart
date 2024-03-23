@@ -20,3 +20,19 @@ List<String> banners = [
   'https://spdpay.in/blitz/flags/banner9.jpg',
   'https://spdpay.in/blitz/flags/banner10.png',
 ];
+List<String> user = [
+  '@mukrram',
+  '@aryan7',
+  '@akshat',
+  '@vivek',
+  '@unknown',
+  '@Juyel'
+];
+List<String> timing = [
+  '03:10',
+  '07:45',
+  '02:10',
+  '08:09',
+  '12:36',
+  '28:03'
+];

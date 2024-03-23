@@ -98,6 +98,8 @@ class _DiscoverState extends State<Discover> {
                   child: MiniCard(
                     image: images[index],
                     title: title[index],
+                    publisher: user[index],
+                    timing: timing[index],
                     onTap: () {
                       Navigator.push(
                         context,

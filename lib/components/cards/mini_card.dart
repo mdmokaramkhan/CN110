@@ -10,10 +10,15 @@ class MiniCard extends StatelessWidget {
     super.key,
     required this.image,
     required this.title,
+    required this.timing,
+    required this.publisher,
     this.onTap,
+    
   });
   final String image;
   final String title;
+  final String timing;
+  final String publisher;
   final Function()? onTap;
 
   @override
@@ -62,7 +67,7 @@ class MiniCard extends StatelessWidget {
                         children: [
                           Text('By ', style: Style.textStyles.cardDescription),
                           Text(
-                            '@mukrram',
+                            publisher,
                             style: Style.textStyles.cardDescription.copyWith(
                               color: Style.colors.primaryColor,
                             ),
@@ -79,7 +84,7 @@ class MiniCard extends StatelessWidget {
                             ],
                           ),
                           Text(
-                            '13:00',
+                            timing,
                             style: Style.textStyles.cardDescription,
                           ),
                         ],

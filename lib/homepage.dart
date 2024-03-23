@@ -6,6 +6,7 @@ import 'package:recipe_app/components/cards/mini_card.dart';
 import 'package:recipe_app/components/cursouel.dart';
 import 'package:recipe_app/components/filter_bottomsheet.dart';
 import 'package:recipe_app/components/input.dart';
+import 'package:recipe_app/data.dart';
 import 'package:recipe_app/notification.dart';
 import 'package:recipe_app/recipe.dart';
 import 'package:recipe_app/style.dart';
@@ -83,9 +84,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   IconButton(
                     onPressed: () {
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const NotificationPage()));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const NotificationPage(),
+                        ),
+                      );
                     },
                     icon: SvgPicture.asset(
                       'assets/icons/custom/notification.svg',
@@ -180,9 +183,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       selected: false,
                       side: BorderSide(color: Colors.grey.withOpacity(0.2)),
                       label: Text(categories[index]),
-                      onSelected: (value) {
-                        
-                      },
+                      onSelected: (value) {},
                     ),
                   ),
                 ),
@@ -196,6 +197,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: MiniCard(
                     image: images[index],
                     title: title[index],
+                    timing: timing[index],
+                    publisher: user[index],
                     onTap: () {
                       Navigator.push(
                         context,
