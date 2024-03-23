@@ -24,6 +24,31 @@ class CreateRecipe extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
+                Material(
+                  color: Colors.white,
+                  child: InkWell(
+                    onTap: (){},
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      padding: const EdgeInsets.all(30),
+                      child: Row(
+                        children: [
+                          Image.network(
+                            'https://static.vecteezy.com/system/resources/previews/004/968/473/original/upload-or-add-a-picture-jpg-file-concept-illustration-flat-design-eps10-modern-graphic-element-for-landing-page-empty-state-ui-infographic-icon-etc-vector.jpg',
+                            scale: 3,
+                            height: 40,
+                          ),
+                          Text('  Upload recipe image here',
+                              style: Style.textStyles.cardTittle),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
                 CustomInput(
                   lable: 'Title',
                   assetSVG: 'assets/icons/svg/Bookmark.svg',
