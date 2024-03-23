@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:recipe_app/components/cards/banner.dart';
 import 'package:recipe_app/components/cards/mini_card.dart';
@@ -91,27 +90,24 @@ class _DiscoverState extends State<Discover> {
                 ],
               ),
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: List.generate(
-                  images.length,
-                  (index) => Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: MiniCard(
-                      image: images[index],
-                      title: title[index],
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => RecipeDetails(
-                              link: images[index],
-                            ),
+            Wrap(
+              children: List.generate(
+                images.length,
+                (index) => Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: MiniCard(
+                    image: images[index],
+                    title: title[index],
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RecipeDetails(
+                            link: images[index],
                           ),
-                        );
-                      },
-                    ),
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),

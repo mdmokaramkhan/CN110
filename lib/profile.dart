@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:recipe_app/components/cards/medium_card.dart';
 import 'package:recipe_app/components/cards/mini_card.dart';
+import 'package:recipe_app/createrecipe.dart';
 import 'package:recipe_app/data.dart';
+import 'package:recipe_app/login.dart';
 import 'package:recipe_app/recipe.dart';
 import 'package:recipe_app/style.dart';
 
@@ -24,7 +26,10 @@ class _ProfileState extends State<Profile> {
         title: const Text('Profile'),
         actions: [
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const Login()));
+            },
             child: const Text('Logout'),
           ),
           SizedBox(width: Style.sizes.textGap),
@@ -153,23 +158,34 @@ class _ProfileState extends State<Profile> {
                   Material(
                     color: Colors.deepPurple.withOpacity(0.2),
                     borderRadius: BorderRadius.circular(10),
-                    child: Container(
-                      height: 54,
-                      width: MediaQuery.of(context).size.width * .45,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.deepPurple),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Center(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset('assets/icons/svg/Edit.svg'),
-                            Text(
-                              'New Recipe',
-                              style: Style.textStyles.cardTittle.copyWith(color: Colors.grey[800]),
-                            ),
-                          ],
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const CreateRecipe(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        height: 54,
+                        width: MediaQuery.of(context).size.width * .45,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.deepPurple),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Center(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              // SvgPicture.asset('assets/icons/svg/Edit.svg'),
+                              Text(
+                                'New Recipe',
+                                style: Style.textStyles.cardTittle
+                                    .copyWith(color: Colors.grey[800]),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -187,7 +203,8 @@ class _ProfileState extends State<Profile> {
                       child: Center(
                         child: Text(
                           'Manage Recipe',
-                          style: Style.textStyles.cardTittle.copyWith(color: Colors.grey[800]),
+                          style: Style.textStyles.cardTittle
+                              .copyWith(color: Colors.grey[800]),
                         ),
                       ),
                     ),
@@ -224,7 +241,9 @@ class _ProfileState extends State<Profile> {
                       padding: EdgeInsets.only(
                         right: Style.sizes.gap,
                       ),
-                      child: MediumCard(imageLink: banners[index],),
+                      child: MediumCard(
+                        imageLink: banners[index],
+                      ),
                     ),
                   ),
                 ),

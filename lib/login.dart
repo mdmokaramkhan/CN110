@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:recipe_app/api.dart';
 import 'package:recipe_app/components/button/largebutton.dart';
 import 'package:recipe_app/components/input.dart';
+import 'package:recipe_app/main.dart';
 import 'package:recipe_app/style.dart';
 import 'package:recipe_app/utils.dart';
 
@@ -154,6 +154,19 @@ class _LoginState extends State<Login> {
                       //     password: password,
                       //   );
                       // }
+                      Utils.show.fullScreenLoading2(context);
+                      Future.delayed(
+                          const Duration(
+                            seconds: 3,
+                          ), () {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Dashboard(),
+                          ),
+                        );
+                      });
                       return;
                     },
                   )

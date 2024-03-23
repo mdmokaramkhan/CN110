@@ -1,4 +1,7 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:recipe_app/style.dart';
 
@@ -33,11 +36,11 @@ class PasswordInput extends StatefulWidget {
   final String? lable;
   final Function(String?)? onSaved;
   const PasswordInput({
-    Key? key,
+    super.key,
     required this.password,
     required this.onSaved,
     required this.lable,
-  }) : super(key: key);
+  });
 
   @override
   State<PasswordInput> createState() => _PasswordInputState();
@@ -97,6 +100,79 @@ class _PasswordInputState extends State<PasswordInput> {
           return null;
         }
       },
+    );
+  }
+}
+
+class CustomInput extends StatelessWidget {
+  final String lable;
+  final String assetSVG;
+  final Color? iconColor;
+  final String? initialValue;
+  final String? Function(String?)? validator;
+  final List<TextInputFormatter>? textInputFormatter;
+  final TextInputType? keyboardType;
+  final Function(String?)? onSaved;
+  final Function(String?)? onChanged;
+  const CustomInput({
+    super.key,
+    required this.lable,
+    required this.assetSVG,
+    this.iconColor,
+    this.validator,
+    this.initialValue,
+    this.textInputFormatter,
+    this.keyboardType,
+    this.onSaved,
+    this.onChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Style.colors.white,
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: TextFormField(
+        initialValue: initialValue,
+        style: TextStyle(
+          fontWeight: FontWeight.w600,
+          color: Style.colors.textBold,
+        ),
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderSide: const BorderSide(width: 0.5),
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10.0),
+            borderSide: BorderSide(
+              color: Style.colors.textGrey,
+              width: 0.5,
+            ),
+          ),
+          // label: Text(lable),
+          hintText: lable,
+          hintStyle: TextStyle(
+            fontWeight: FontWeight.w600,
+            color: Style.colors.textHint,
+          ),
+          prefixIcon: Padding(
+            padding: EdgeInsets.only(left: Style.sizes.gap, right: Style.sizes.gap),
+            child: SvgPicture.asset(
+              assetSVG,
+              color: iconColor,
+            ),
+          ),
+        ),
+        textInputAction: TextInputAction.next,
+        inputFormatters: textInputFormatter,
+        keyboardType: keyboardType,
+        validator: validator,
+        onSaved: onSaved,
+        onChanged: onChanged,
+      ),
     );
   }
 }

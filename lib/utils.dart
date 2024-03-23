@@ -3,6 +3,7 @@ import 'package:recipe_app/style.dart';
 
 class Utils {
   static var show = _Show();
+  static var validators = _Validators();
 }
 
 class _Show {
@@ -42,3 +43,52 @@ class _Show {
     );
   }
 }
+
+class _Validators {
+  String? email(String? value) {
+    if (value!.isEmpty) {
+      return 'email is required';
+    } else if (!value.isValidEmail()) {
+      return 'invalid email';
+    } else {
+      return null;
+    }
+  }
+
+  String? phoneNumber(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Phone number is Required';
+    } else if (value.length < 10) {
+      return 'Phone Number Must Contains 10 Digits';
+    } else {
+      return null;
+    }
+  }
+
+  String? password(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Password is Required';
+    } else if (value.length < 6) {
+      return 'Password Must Contains 6 letter';
+    } else {
+      return null;
+    }
+  }
+
+  String? required(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'This field is Required';
+    } else {
+      return null;
+    }
+  }
+}
+
+extension EmailValidator on String {
+  bool isValidEmail() {
+    return RegExp(
+            r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+        .hasMatch(this);
+  }
+}
+
