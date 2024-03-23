@@ -6,6 +6,7 @@ import 'package:recipe_app/components/cards/medium_card.dart';
 import 'package:recipe_app/components/cards/mini_card.dart';
 import 'package:recipe_app/createrecipe.dart';
 import 'package:recipe_app/data.dart';
+import 'package:recipe_app/editprofile.dart';
 import 'package:recipe_app/login.dart';
 import 'package:recipe_app/recipe.dart';
 import 'package:recipe_app/style.dart';
@@ -77,7 +78,14 @@ class _ProfileState extends State<Profile> {
                       ),
                       const Spacer(),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const EditProfile(),
+                            ),
+                          );
+                        },
                         child: const Text('Edit Profile'),
                       ),
                     ],
