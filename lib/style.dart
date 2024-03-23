@@ -33,7 +33,7 @@ class _TextStyles {
   final cardTittle = TextStyle(
     color: Style.colors.textBold,
     fontSize: 16,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w500,
   );
 
   //Card tittle large

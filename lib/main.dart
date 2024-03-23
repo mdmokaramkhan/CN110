@@ -1,8 +1,8 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:recipe_app/discover.dart';
 import 'package:recipe_app/homepage.dart';
 import 'package:recipe_app/style.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -19,10 +19,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Recipe App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
-        useMaterial3: true,
+        scaffoldBackgroundColor: Style.colors.scaffoldBackgroundColor,
+        appBarTheme: AppBarTheme(
+          color: Style.colors.white,
+          elevation: 0,
+          actionsIconTheme: IconThemeData(color: Style.colors.textBold),
+          iconTheme: IconThemeData(color: Style.colors.textBold),
+          titleTextStyle: TextStyle(
+            color: Style.colors.textBold,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       home: const Dashboard(),
     );
@@ -41,14 +51,14 @@ class _DashboardState extends State<Dashboard> {
   late Widget currentScreen;
 
   List active = [
-    Style.colors.accentColor,
+    Style.colors.primaryColor,
     Colors.grey[400],
     Colors.grey[400],
     Colors.grey[400]
   ];
   final List<Widget> screens = [
     const MyHomePage(),
-    Container(color: Colors.green),
+    const Discover(),
     Container(color: Colors.brown),
     Container( color: Colors.red,),
   ];
@@ -60,7 +70,7 @@ class _DashboardState extends State<Dashboard> {
         if (i != index) {
           active[i] = Colors.grey[400];
         } else {
-          active[i] = Style.colors.accentColor;
+          active[i] = Style.colors.primaryColor;
         }
       }
     });
@@ -89,39 +99,43 @@ class _DashboardState extends State<Dashboard> {
           onTap: onChange,
           currentIndex: _currentIndex,
           unselectedItemColor: Colors.grey[400],
-          selectedItemColor: Style.colors.accentColor,
+          selectedItemColor: Style.colors.primaryColor,
           items: [
             SalomonBottomBarItem(
+              selectedColor: Style.colors.primaryColor,
               icon: SvgPicture.asset(
-                'assets/icons/svg/Home.svg',
-                color: active[0],
+                'assets/icons/custom/home.svg',
+                color: Style.colors.primaryColor,
               ),
               title: const Text(
                 "Home",
               ),
             ),
             SalomonBottomBarItem(
+              selectedColor: Colors.blue,
               icon: SvgPicture.asset(
                 'assets/icons/svg/Discovery.svg',
-                color: active[1],
+                color: Colors.blue,
               ),
               title: const Text(
                 "Discover",
               ),
             ),
             SalomonBottomBarItem(
+              selectedColor: Colors.deepOrange,
               icon: SvgPicture.asset(
-                'assets/icons/svg/Heart.svg',
-                color: active[2],
+                'assets/icons/custom/heart.svg',
+                color: Colors.deepOrange,
               ),
               title: const Text(
                 "Favourites",
               ),
             ),
             SalomonBottomBarItem(
+              selectedColor: Colors.green,
               icon: SvgPicture.asset(
-                'assets/icons/svg/user_3.svg',
-                color: active[3],
+                'assets/icons/custom/user.svg',
+                color: Colors.green,
               ),
               title: const Text(
                 "Profile",

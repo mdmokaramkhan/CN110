@@ -10,9 +10,10 @@ class SearchInput extends StatelessWidget {
     return TextFormField(
       decoration: InputDecoration(
         border: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.white),
           borderRadius: BorderRadius.circular(Style.sizes.gap),
         ),
-        hintText: 'Search for your query',
+        hintText: 'Search for your recipe',
         hintStyle: TextStyle(
           fontWeight: FontWeight.w600,
           color: Style.colors.textBold,
