@@ -45,7 +45,7 @@ class PasswordInput extends StatefulWidget {
 
 class _PasswordInputState extends State<PasswordInput> {
   bool m = true;
-  String i = 'assets/icons/view.svg';
+  String i = 'assets/icons/custom/view.svg';
   String hintText = 'enter password';
   @override
   Widget build(BuildContext context) {
@@ -66,7 +66,7 @@ class _PasswordInputState extends State<PasswordInput> {
         prefixIcon: Padding(
           padding: EdgeInsets.only(left: Style.sizes.gap, right: Style.sizes.gap),
           child: SvgPicture.asset(
-            'assets/icons/key.svg',
+            'assets/icons/custom/key.svg',
           ),
         ),
         suffixIcon: GestureDetector(
@@ -74,10 +74,10 @@ class _PasswordInputState extends State<PasswordInput> {
             setState(() {
               if (m) {
                 m = false;
-                i = 'assets/icons/view_hide.svg';
+                i = 'assets/icons/custom/hide.svg';
               } else {
                 m = true;
-                i = 'assets/icons/view.svg';
+                i = 'assets/icons/custom/view.svg';
               }
             });
           },

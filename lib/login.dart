@@ -88,22 +88,28 @@ class _LoginState extends State<Login> {
                   if (mounted) FocusScope.of(context).unfocus();
                   username = value;
                   Utils.show.fullScreenLoading2(context);
-                  var response = await Api.authenticates.checkUsername(
-                    context: context,
-                    username: username,
-                    password: 'password',
-                  );
-                  if (response.data['success'] == true) {
+                  // var response = await Api.authenticates.checkUsername(
+                  //   context: context,
+                  //   username: username,
+                  //   password: 'password',
+                  // );
+                  // if (response.data['success'] == true) {
+                  //   setState(() {
+                  //     userFound = true;
+                  //   });
+                  // } else {
+                  //   if (mounted) {
+                  //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  //       content: Text(response.data['response']),
+                  //     ));
+                  //   }
+                  // }
+                  Future.delayed(const Duration(seconds: 5), () {
+                    Navigator.pop(context);
                     setState(() {
                       userFound = true;
                     });
-                  } else {
-                    if (mounted) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text(response.data['response']),
-                      ));
-                    }
-                  }
+                  });
                 } else if (userFound) {
                   setState(() {
                     userFound = false;
@@ -117,15 +123,14 @@ class _LoginState extends State<Login> {
                     key: _formKey,
                     child: PasswordInput(
                       lable: 'Password',
-                      password: 'assets/icons/key.svg',
+                      password: 'assets/icons/custom/key.svg',
                       onSaved: (value) => password = value.toString(),
                     ),
                   )
                 : Container(),
             SizedBox(height: Style.sizes.defaultPadding),
             GestureDetector(
-              onTap: () {
-              },
+              onTap: () {},
               child: Text(
                 'Having trouble, need help?',
                 style: TextStyle(
