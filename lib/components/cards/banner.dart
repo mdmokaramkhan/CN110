@@ -8,10 +8,12 @@ class CustomBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(
-          vertical: Style.sizes.gap, horizontal: Style.sizes.defaultPadding),
+        vertical: Style.sizes.gap,
+        horizontal: Style.sizes.gap,
+      ),
       padding: const EdgeInsets.symmetric(
         vertical: 20.0,
-        horizontal: 25,
+        horizontal: 20,
       ),
       width: double.maxFinite,
       decoration: BoxDecoration(
@@ -19,7 +21,8 @@ class CustomBanner extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
         image: const DecorationImage(
           image: NetworkImage(
-              'https://cdni.iconscout.com/illustration/premium/thumb/female-cook-tasting-food-4874539-4055253.png'),
+            'https://cdni.iconscout.com/illustration/premium/thumb/female-cook-tasting-food-4874539-4055253.png',
+          ),
           alignment: Alignment.centerRight,
         ),
       ),

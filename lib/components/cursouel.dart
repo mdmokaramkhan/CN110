@@ -12,7 +12,7 @@ class OfferBanner extends StatelessWidget {
       'https://spdpay.in/blitz/flags/banner2.png',
       'https://spdpay.in/blitz/flags/banner3.png',
       'https://spdpay.in/blitz/flags/banner4.png',
-      'https://i.pinimg.com/736x/b1/33/fe/b133fe1cf7d86da172350deaf4c85599.jpg',
+      'https://spdpay.in/blitz/flags/banner5.png',
     ];
     return Container(
       margin: const EdgeInsets.only(top: 10, bottom: 3),

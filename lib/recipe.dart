@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:recipe_app/style.dart';
 
@@ -74,19 +73,39 @@ class _RecipeDetailsState extends State<RecipeDetails> {
                         '  2 days ago ',
                         style: Style.textStyles.cardDescription,
                       ),
-                      Text(
-                        '  Mohd. Mokaram ',
-                        style: Style.textStyles.cardTittle,
+                      Row(
+                        children: [
+                          Text(
+                            '  Mohd. Mokaram ',
+                            style: Style.textStyles.cardTittle,
+                          ),
+                          SvgPicture.asset(
+                            'assets/icons/custom/trusted.svg',
+                            color: Style.colors.colorWaiting,
+                            height: 18,
+                            width: 18,
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                  SvgPicture.asset(
-                    'assets/icons/custom/trusted.svg',
-                    color: Style.colors.colorWaiting,
-                    height: 18,
-                    width: 18,
-                  ),
                   const Spacer(),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 5.0,
+                      horizontal: 10,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Style.colors.colorSuccess,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                      '4.5',
+                      style: Style.textStyles.boldSmall.copyWith(
+                        color: Style.colors.textBold,
+                      ),
+                    ),
+                  ),
                 ],
               ),
               SizedBox(height: Style.sizes.gap),
@@ -105,10 +124,11 @@ class _RecipeDetailsState extends State<RecipeDetails> {
                         color: Style.colors.colorWaiting,
                       ),
                       SizedBox(width: Style.sizes.gap),
-                      const Column(
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Ingredients'),
-                          Text('10 items'),
+                          Text('Ingredients', style: Style.textStyles.cardDescription),
+                          Text('10 items', style: Style.textStyles.boldSmall),
                         ],
                       ),
                     ],
@@ -121,10 +141,11 @@ class _RecipeDetailsState extends State<RecipeDetails> {
                         color: Style.colors.colorWarning,
                       ),
                       SizedBox(width: Style.sizes.gap),
-                      const Column(
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Time'),
-                          Text('12 mins'),
+                          Text('Time', style: Style.textStyles.cardDescription),
+                          Text('12 mins', style: Style.textStyles.boldSmall),
                         ],
                       ),
                     ],
@@ -137,10 +158,11 @@ class _RecipeDetailsState extends State<RecipeDetails> {
                         color: Style.colors.colorSuccess,
                       ),
                       SizedBox(width: Style.sizes.gap),
-                      const Column(
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Energy'),
-                          Text('230 cal'),
+                          Text('Energy', style: Style.textStyles.cardDescription),
+                          Text('230 cal', style: Style.textStyles.boldSmall),
                         ],
                       ),
                     ],
@@ -154,52 +176,56 @@ class _RecipeDetailsState extends State<RecipeDetails> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              const Text('• Gather all your ingredients: bun, onion, ground beef patty, lettuce, tomato, cheese, pickles, ketchup, mustard, and mayonnaise.'),
-              const Text('• Wash the lettuce and tomato. Peel and slice the onion.'),
-          
+              const Text(
+                  '• Gather all your ingredients: bun, onion, ground beef patty, lettuce, tomato, cheese, pickles, ketchup, mustard, and mayonnaise.'),
+              const Text(
+                  '• Wash the lettuce and tomato. Peel and slice the onion.'),
               const SizedBox(height: 16),
-          
               const Text(
                 'Cook the Patty:',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              const Text('1. Preheat a grill or skillet over medium-high heat.'),
-              const Text('2. Season the ground beef patty with salt and pepper, if desired.'),
-              const Text('3. Cook the patty for about 3-4 minutes on each side, or until desired doneness is reached. If using cheese, add it to the patty during the last minute of cooking to allow it to melt.'),
-          
+              const Text(
+                  '1. Preheat a grill or skillet over medium-high heat.'),
+              const Text(
+                  '2. Season the ground beef patty with salt and pepper, if desired.'),
+              const Text(
+                  '3. Cook the patty for about 3-4 minutes on each side, or until desired doneness is reached. If using cheese, add it to the patty during the last minute of cooking to allow it to melt.'),
               const SizedBox(height: 16),
-          
               const Text(
                 'Prepare the Bun:',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               const Text('1. Slice the bun in half horizontally.'),
-              const Text('2. Optionally, toast the bun halves on the grill or in a toaster for added flavor and texture.'),
-          
+              const Text(
+                  '2. Optionally, toast the bun halves on the grill or in a toaster for added flavor and texture.'),
               const SizedBox(height: 16),
-          
               const Text(
                 'Assemble the Burger:',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              const Text('1. Place the cooked patty on the bottom half of the bun.'),
-              const Text('2. Layer with lettuce, tomato slices, and onion rings.'),
+              const Text(
+                  '1. Place the cooked patty on the bottom half of the bun.'),
+              const Text(
+                  '2. Layer with lettuce, tomato slices, and onion rings.'),
               const Text('3. Add pickles if desired.'),
-              const Text('4. Spread ketchup, mustard, and mayonnaise on the top half of the bun.'),
-              const Text('5. Place the top half of the bun over the assembled ingredients to complete the burger.'),
-          
+              const Text(
+                  '4. Spread ketchup, mustard, and mayonnaise on the top half of the bun.'),
+              const Text(
+                  '5. Place the top half of the bun over the assembled ingredients to complete the burger.'),
               const SizedBox(height: 16),
-          
               const Text(
                 'Serve:',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
-              const Text('• Serve the burger immediately while it\'s still warm and the ingredients are fresh.'),
-              const Text('• Optionally, serve with additional condiments or side dishes such as fries or coleslaw.'),
+              const Text(
+                  '• Serve the burger immediately while it\'s still warm and the ingredients are fresh.'),
+              const Text(
+                  '• Optionally, serve with additional condiments or side dishes such as fries or coleslaw.'),
               const SizedBox(height: 70),
             ],
           ),

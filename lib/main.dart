@@ -1,9 +1,12 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:recipe_app/discover.dart';
+import 'package:recipe_app/favourite.dart';
 import 'package:recipe_app/homepage.dart';
+import 'package:recipe_app/profile.dart';
 import 'package:recipe_app/style.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
@@ -32,6 +35,11 @@ class MyApp extends StatelessWidget {
             fontSize: 18,
             fontWeight: FontWeight.bold,
           ),
+          systemOverlayStyle: SystemUiOverlayStyle(
+            systemNavigationBarColor: Colors.white,
+            statusBarColor: Style.colors.scaffoldBackgroundColor,
+            statusBarBrightness: Brightness.dark,
+          ),
         ),
       ),
       home: const Dashboard(),
@@ -59,8 +67,8 @@ class _DashboardState extends State<Dashboard> {
   final List<Widget> screens = [
     const MyHomePage(),
     const Discover(),
-    Container(color: Colors.brown),
-    Container( color: Colors.red,),
+    const Favourite(),
+    const Profile(),
   ];
 
   void onChange(int index) {
